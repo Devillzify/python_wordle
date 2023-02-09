@@ -90,7 +90,8 @@ def juego(codigo,dificultad):
 
 def partida():
   print("Bienvenido al juego")
-  print("")
+  print("El codigo esta formado por una combinacion aleatoria de: ")
+  print(" A  B  C  D ")
   print("selecciona tu dificultad: ")
   print("")
   print("1: Facil (4 digitos) \n2: Intermedio (6 digitos) \n3: Dificil (8 digitos)")
