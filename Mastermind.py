@@ -41,20 +41,17 @@ def conteo(codigo):
         if x == "D":
             listaConteo[3] = listaConteo[3] + 1
 
-# Per si volem ampliar el nombre de codis
 def seleccioDificultat(no):
+    valor = 0
     if(no=="1"):
-        listaLetras = ["A","B","C","D"]
+        valor = 1
     elif(no=="2"):
-        listaLetras = ["A","B","C","D","E","F"]
+        valor = 2
     elif(no=="3"):
-        listaLetras = ["A","B","C","D","E","F","G","H"]
+        valor = 3
     else:
         print("Has d'introduir un valor vàlid!")
-    return listaLetras
-
-#dificultat = input("Dificultat (1-3): ")
-#listaLetras = seleccioDificultat(dificultat)
+    return valor
 
 # Reb el codi introduit per l'usuari
 def comprovarInput(entrada,codigo):
@@ -89,6 +86,7 @@ def lletresIncorrectes(listaLetras, codigo, palabra, lletresOk):
   print("Las letras existentes en posicion incorrecta son: " + str(letras))
 
 
+
 def juego(codigo,dificultad):
     vidas = (int(dificultad) * 10) + 1
     while vidas > 1:
@@ -103,6 +101,7 @@ def juego(codigo,dificultad):
         else:
             print("Codigo incorrecto, has perdido una vida!!!")
     print("Has perdido looser L2P")
+    print("El codigo era: " + codigo + ". no era tan dificil, IMBECIL!!!")
 
         
 def partida():
@@ -113,8 +112,8 @@ def partida():
   print("")
   print("1: Facil (4 digitos) \n2: Intermedio (6 digitos) \n3: Dificil (8 digitos)")
   print("")
-  dificultad = input("Tu eleccion: ")
-  codigo = "ABCDABCD"  #generarcodigo(dificultad)
+  dificultad = seleccioDificultat(input("Tu eleccion: "))
+  codigo = generarcodigo(dificultad)
   conteo(codigo)
   juego(codigo,dificultad)
   
