@@ -76,7 +76,7 @@ def comprovarInput(entrada,codigo):
 def lletresIncorrectes(listaLetras, codigo, palabra, lletresOk):
 
   letras = 0
-  for x in range(len(codigo)):
+  for x in range(len(listaLetras)):
     pal = palabra.count(listaLetras[x])
     cod = codigo.count(listaLetras[x])
 
@@ -114,7 +114,7 @@ def partida():
   print("1: Facil (4 digitos) \n2: Intermedio (6 digitos) \n3: Dificil (8 digitos)")
   print("")
   dificultad = input("Tu eleccion: ")
-  codigo = "AAAAAA" #generarcodigo(dificultad)
+  codigo = "ABCDABCD"  #generarcodigo(dificultad)
   conteo(codigo)
   juego(codigo,dificultad)
   
