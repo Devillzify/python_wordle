@@ -28,6 +28,7 @@ def comprobarPosicion(codigo,palabra):
         if codigo[x] == palabra[x]:
             posicionCorrecta = posicionCorrecta + 1
     print("Letras del codigo en la posicion correcta: " + str(posicionCorrecta))
+    return posicionCorrecta
             
 def conteo(codigo):
     for x in codigo:
@@ -71,23 +72,39 @@ def comprovarInput(entrada,codigo):
     return flg
 
 
+# Calcular lletres incorrectes pero existents
+def lletresIncorrectes(listaLetras, codigo, palabra, lletresOk):
+
+  letras = 0
+  for x in range(len(codigo)):
+    pal = palabra.count(listaLetras[x])
+    cod = codigo.count(listaLetras[x])
+
+    if (pal >= cod):
+       letras = letras + cod
+    else:
+       letras = letras + pal
+
+  letras = letras - lletresOk
+  print("Las letras existentes en posicion incorrecta son: " + str(letras))
+
+
 def juego(codigo,dificultad):
     vidas = (int(dificultad) * 10) + 1
     while vidas > 1:
         vidas = vidas - 1
         print("Vidas restantes: " + str(vidas))
         palabra = input("Introduce el codigo: ").upper()
+       
         print("")
         if comprovarInput(palabra,codigo):
-            comprobarPosicion(codigo,palabra)
+           cantidadCorrecta =  comprobarPosicion(codigo,palabra)
+           lletresIncorrectes(listaLetras,codigo,palabra,cantidadCorrecta)
         else:
             print("Codigo incorrecto, has perdido una vida!!!")
     print("Has perdido looser L2P")
 
-            
-
-
-
+        
 def partida():
   print("Bienvenido al juego")
   print("El codigo esta formado por una combinacion aleatoria de: ")
@@ -97,7 +114,7 @@ def partida():
   print("1: Facil (4 digitos) \n2: Intermedio (6 digitos) \n3: Dificil (8 digitos)")
   print("")
   dificultad = input("Tu eleccion: ")
-  codigo = generarcodigo(dificultad)
+  codigo = "AAAAAA" #generarcodigo(dificultad)
   conteo(codigo)
   juego(codigo,dificultad)
   
