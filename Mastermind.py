@@ -88,7 +88,7 @@ def lletresIncorrectes(listaLetras, codigo, palabra, lletresOk):
 
 
 def juego(codigo,dificultad):
-    vidas = (int(dificultad) * 10) + 1
+    vidas = (dificultad * 10) + 1
     while vidas > 1:
         vidas = vidas - 1
         print("Vidas restantes: " + str(vidas))
